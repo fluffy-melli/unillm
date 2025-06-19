@@ -8,7 +8,13 @@ import (
 	"github.com/google/generative-ai-go/genai"
 )
 
-func (c *MD) Text(user string) (string, error) {
+func (c *MD) Text(system, user string) (string, error) {
+	c.model.SystemInstruction = &genai.Content{
+		Parts: []genai.Part{
+			genai.Text(system),
+		},
+	}
+
 	var generate []genai.Part
 
 	generate = append(generate, genai.Text(user))
@@ -32,7 +38,13 @@ func (c *MD) Text(user string) (string, error) {
 	return respond, nil
 }
 
-func (c *MD) TextWithImage(user string, images ...[]byte) (string, error) {
+func (c *MD) TextWithImage(system, user string, images ...[]byte) (string, error) {
+	c.model.SystemInstruction = &genai.Content{
+		Parts: []genai.Part{
+			genai.Text(system),
+		},
+	}
+
 	var generate []genai.Part
 
 	for _, i := range images {
@@ -66,7 +78,13 @@ func (c *MD) TextWithImage(user string, images ...[]byte) (string, error) {
 	return respond, nil
 }
 
-func (c *MD) TextWithImageURL(user string, images ...string) (string, error) {
+func (c *MD) TextWithImageURL(system, user string, images ...string) (string, error) {
+	c.model.SystemInstruction = &genai.Content{
+		Parts: []genai.Part{
+			genai.Text(system),
+		},
+	}
+
 	var generate []genai.Part
 
 	for _, url := range images {

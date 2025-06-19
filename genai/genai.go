@@ -8,7 +8,6 @@ import (
 )
 
 type Option struct {
-	SystemPrompt  string
 	Safety        []*genai.SafetySetting
 	Temperature   float32
 	TopP          float32
@@ -41,14 +40,6 @@ func NewModel(name, apikey string, opts *Option) (*MD, error) {
 			model: model,
 			ctx:   ctx,
 		}, nil
-	}
-
-	if opts.SystemPrompt != "" {
-		model.SystemInstruction = &genai.Content{
-			Parts: []genai.Part{
-				genai.Text(opts.SystemPrompt),
-			},
-		}
 	}
 
 	config := genai.GenerationConfig{}
