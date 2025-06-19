@@ -5,6 +5,7 @@ go 1.24.2
 require (
 	github.com/fluffy-melli/picrocess v0.2.1
 	github.com/google/generative-ai-go v0.20.1
+	github.com/joho/godotenv v1.5.1
 	google.golang.org/api v0.237.0
 )
 
