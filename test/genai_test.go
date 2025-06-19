@@ -5,7 +5,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/fluffy-melli/unillm/genai_api"
+	genai_api "github.com/fluffy-melli/unillm/genai"
 	"github.com/google/generative-ai-go/genai"
 	"github.com/joho/godotenv"
 )
